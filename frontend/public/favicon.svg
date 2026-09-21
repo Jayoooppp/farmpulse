@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 48 48" fill="none">
+  <!-- FarmPulse Logo Favicon -->
+  <rect width="48" height="48" rx="8" fill="#1B5E20"/>
+  <!-- Leaf -->
+  <path d="M24 8C24 8 20 14 20 20C20 25.5228 21.7909 28 24 28C26.2091 28 28 25.5228 28 20C28 14 24 8 24 8Z" fill="#A5D6A7" opacity="0.95"/>
+  <!-- Root -->
+  <path d="M24 28C24 28 20 32 18 38C17.5 40 19 42 21 42C23 42 25 40 25.5 38C27 32 24 28 24 28Z" fill="#66BB6A"/>
+  <!-- Center dot (heartbeat indicator) -->
+  <circle cx="24" cy="20" r="2.5" fill="#FFC107"/>
+</svg>

@@ -1,0 +1,45 @@
+zerops:
+  - setup: backend
+    build:
+      base: nodejs@20
+      buildCommands:
+        - cd backend && npm install
+      deployFiles:
+        - backend
+    run:
+      base: nodejs@20
+      ports:
+        - port: 5000
+          httpSupport: true
+      start: cd backend && npm start
+      envVariables:
+        PORT: 5000
+
+  - setup: ml
+    build:
+      os: ubuntu
+      base: python@3.11
+      buildCommands:
+        - cd ml-service && pip install -r requirements.txt
+      deployFiles:
+        - ml-service
+    run:
+      os: ubuntu
+      base: python@3.11
+      prepareCommands:
+        - cd ml-service && pip install -r requirements.txt
+      ports:
+        - port: 5001
+          httpSupport: true
+      start: cd ml-service && gunicorn -w 2 -b 0.0.0.0:5001 --timeout 120 app:app
+
+  - setup: frontend
+    build:
+      base: nodejs@20
+      buildCommands:
+        - cd frontend && npm install
+        - cd frontend && npm run build
+      deployFiles:
+        - frontend/dist/~
+    run:
+      base: static
